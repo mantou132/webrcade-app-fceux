@@ -59,7 +59,7 @@ if 'EMSCRIPTEN_TOOL_PATH' in os.environ:
   env.Replace(PROGSUFFIX = [".js"])
   common = '-s STRICT=1 -fno-exceptions -fno-rtti -fno-c++-static-destructors -s DISABLE_EXCEPTION_CATCHING=1'
   common += ' --bind -DEMSCRIPTEN_HAS_UNBOUND_TYPE_NAMES=0'
-  common += ' -s MODULARIZE=1 -s EXPORT_NAME=FCEUX -s INVOKE_RUN=0 --post-js src/drivers/em/post.js'
+  common += ' -s MODULARIZE=1 -s EXPORT_NAME=FCEUX -s EXPORT_ES6=1 -s INVOKE_RUN=0 --post-js src/drivers/em/post.js'
   # common += ' -s EXPORTED_FUNCTIONS=\'["_audioBufferCallback"]\''
   env.Append(CCFLAGS = common, LINKFLAGS = common)
   env.Append(LINKFLAGS = '--no-entry')

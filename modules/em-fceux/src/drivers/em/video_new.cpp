@@ -14,7 +14,7 @@ bool FCEUD_ShouldDrawInputAids()
 void FCEUD_SetPalette(uint8 index, uint8 r, uint8 g, uint8 b)
 {
     EM_ASM({
-        window.emulator.setPaletteColor($0, $1, $2, $3);
+        Module.setPaletteColor($0, $1, $2, $3);
     }, index, r, g, b);
 } 
 
@@ -79,6 +79,6 @@ bool Video_SetConfig(const std::string& key, const emscripten::val& value)
 void BlitScreen(uint8 *XBuf)
 {    
     EM_ASM({
-        window.emulator.drawScreen($0);
+        Module.drawScreen($0);
     }, XBuf);
 }

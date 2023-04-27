@@ -1,51 +1,30 @@
 {
-  "name": "em-fceux",
-  "version": "2.0.1",
-  "description": "Emscripten port of FCEUX emulator.",
-  "homepage": "https://tsone.kapsi.fi/em-fceux/",
-  "author": "Valtteri Heikkilä",
-  "license": "GPL-2.0",
-  "repository": {
-    "type": "git",
-    "url": "git@bitbucket.org:tsone/em-fceux.git"
+  "name": "@mantou/fceux",
+  "version": "0.0.2",
+  "exports": {
+    ".": "./dist/fceux.js",
+    "./*": "./dist/*"
   },
-  "bugs": {
-    "url": "https://bitbucket.org/tsone/em-fceux/issues?status=new&status=open"
-  },
-  "keywords": [
-    "emscripten",
-    "emulator",
-    "famicom",
-    "nes",
-    "nintendo",
-    "wasm",
-    "webassembly",
-    "webaudio",
-    "web audio",
-    "webgl"
-  ],
   "files": [
-    "API.md",
-    "CHANGELOG.md",
-    "COPYING",
-    "dist/fceux.js",
-    "dist/fceux.wasm",
-    "index.d.ts",
-    "package.json",
-    "README.md"
+    "/dist/",
+    "/index.d.ts"
   ],
-  "main": "./dist/fceux.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "./build-emscripten.sh && npm run build:docs",
     "build:debug": "./build-emscripten.sh RELEASE=0 && npm run build:docs",
-    "build:docs": "./generate-api-doc.py > API.md && npm run prettier",
+    "build:docs": "./generate-api-doc.py > API.md",
     "build:shaders": "./build-shaders.sh",
-    "clean": "./build-emscripten.sh --clean ; rm -rf dist ; find . -name '*.o' -delete",
-    "prepack": "npm test",
-    "prettier": "prettier --prose-wrap always --write *.md && prettier --single-quote --print-width 999 --trailing-comma es5 --write *.d.ts src/drivers/em/*.{js,ts}",
-    "test": "[ -f API.md -a -f CHANGELOG.md -a -f COPYING -a -f README.md -a -f dist/fceux.js -a -f dist/fceux.wasm ]"
+    "clean": "./build-emscripten.sh --clean ; rm -rf dist ; find . -name '*.o' -delete"
   },
-  "devDependencies": {
-    "prettier": "1.19.1"
-  }
+  "author": "mantou132",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mantou132/webrcade-app-fceux.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mantou132/webrcade-app-fceux/issues"
+  },
+  "homepage": "https://github.com/mantou132/webrcade-app-fceux#readme"
 }
